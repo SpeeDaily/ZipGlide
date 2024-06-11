@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #ff7d00;
+    padding: 1rem 0;
+    color: white;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a.active {
+    text-decoration: underline;
+}
+
+main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.services h1, .services h2 {
+    color: #ff7d00;
+}
+
+.about p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+.custom-footer {
+    background-color: #d1eecc; /* Subtle gray background color */
+    color: #333; /* Dark text color for contrast */
+    padding: 40px 0; /* Add some padding for spacing */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-left,
+.footer-right {
+    flex: 1;
+}
+
+.footer h4 {
+    color: #333; /* Dark text color for headings */
+}
+
+.footer p {
+    margin: 0; /* Remove default margin for cleaner appearance */
+}
+
+/* Social Media Icons */
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icon {
+    display: inline-block;
+    font-size: 20px;
+    margin-right: 10px;
+    color: #333; /* Adjust color to match your theme */
+}
+
+.social-icon:hover {
+    color: #FF7A00; /* Adjust hover color to match your theme */
+}
+
+/* Copyright Link */
+.copyright-link {
+    color: #007bff; /* Adjust color to match your theme */
+    text-decoration: none;
+}
+
+.copyright-link:hover {
+    text-decoration: underline;
+}

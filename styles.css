@@ -1,0 +1,673 @@
+/* Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/WebTourism/ZipGlide-v2/background.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Video Container */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    background-color: #f5f5dc;
+}
+
+#backgroundVideo {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   display: none;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 0 20px;
+    background: rgba(0, 0, 0, 0.4);
+}
+/* Overlay Text Container *//* Overlay Text Container *//* Overlay Text Container */
+.animated-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* City Name Styles */
+/* Base styles */
+#cityName {
+    font-size: 6em; /* Default font size */
+    font-weight: bold; /* Make the text bold */
+    color: #ff8900; /* Bright color */
+    margin: 0;
+    opacity: 0; /* Initially hidden */
+    transform: translateX(-50px); /* Initially out of place for slideLeft */
+    animation: slideLeft 0.3s ease-in-out 0s 1 forwards, pause 1s 0.3s forwards; /* Animation with pause */
+}
+
+#citySlogan {
+    font-size: 2em; /* Default font size */
+    font-style: italic; /* Make the text italic */
+    color: #ffffff; /* Change to white */
+    margin: 10px 0 0; /* Adjust margin as needed */
+    opacity: 0; /* Initially hidden */
+    transform: translateX(50px); /* Initially out of place for slideRight */
+    animation: slideRight 0.3s ease-in-out 0s 1 forwards, pause 1s 0.3s forwards; /* Animation with pause */
+}
+
+/* Responsive styles */
+
+/* For small devices (tablets, 768px and down) */
+/* Responsive styles */
+
+/* For small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+    #cityName {
+        font-size: 2em; /* Adjusted font size */
+    }
+
+    #citySlogan {
+        font-size: 1.5em; /* Adjusted font size */
+    }
+}
+
+/* For very small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+    #cityName {
+        font-size: 3em; /* Adjusted font size */
+    }
+
+    #citySlogan {
+        font-size: 1.2em; /* Adjusted font size */
+    }
+}
+
+/* Keyframe Animations */
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pause {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+   /* Top Bar */
+.top-bar {
+    position: absolute;
+    top: 15px;  
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Main Menu Bar and Language Icon */
+.menu-bars img {
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.menu-bars img:hover {
+    transform: scale(1.1);
+}
+
+/* Language Selector */
+
+/* Language Selector */
+.language-selector {
+    position: relative;
+    cursor: pointer;
+}
+
+.language-selector img {
+    width: 60px; /* Adjust the width of the language icon */
+    height: 60px; /* Adjust the height of the language icon */
+}
+
+ 
+ .language-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% -5677px); /* Position below the language selector */
+    right: 80px;
+    width: auto; /* Let the width adjust dynamically */
+    min-width: 130px; /* Set a minimum width */
+    padding: 18px; /* Add padding to the dropdown */
+    background-color: #333;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 999; border-radius: 16px;/* Ensure it appears above other content */
+}
+
+@media (max-width: 768px) {
+    .language-menu {
+        top: calc(100% -35px); /* Adjust the position for smaller screens */
+        right: 0px; /* Align the dropdown with the right edge of the language selector */
+    }
+}
+
+.language-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.language-menu a:hover {
+    background-color: #444;
+}
+
+/* Dropdown Content */
+/* Side Menu */
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.side-menu a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-menu a:hover {
+    color: #f1f1f1;
+}
+
+.side-menu .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Adjust icon size for smaller screens */
+    .menu-bars img {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Adjust dropdown for smaller screens */
+    .language-selector i {
+        font-size: 18px;
+    }
+
+    .language-menu {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* CSS Animations */
+
+/* Rental Process Section */
+.rental-process {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.rental-process h2 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 3px solid #333;
+    display: inline-block;
+    padding-bottom: 10px;
+    background: linear-gradient(to right, #ff8900, #ff7d00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Initially out of place */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
+}
+
+.rental-process h2.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center align steps for better appearance */
+}
+
+.step {
+    flex: 1 1 calc(33% - 40px);
+    max-width: calc(33% - 40px);
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Initially out of place */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
+}
+
+.step.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .step {
+        flex: 1 1 calc(50% - 40px);
+        max-width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    .steps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step {
+        flex: 1 1 100%;
+        max-width: 90%;
+    }
+}
+
+/* Available Cars Section */
+.available-cars {
+    padding: 40px 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.available-cars h2 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 3px solid #333;
+    display: inline-block;
+    padding-bottom: 10px;
+    background: linear-gradient(to right, #ff8900, #ff7d00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.car {
+    position: relative;
+    width: 250px;
+    margin: 20px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.car img {
+    width: 100%;
+    border-bottom: 2px solid #ff8900;
+}
+
+.car:hover {
+    transform: scale(1.05);
+}
+
+.car h3 {
+    margin: 15px 0 5px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.car p {
+    margin: 0;
+    padding: 0 10px 10px;
+    font-size: 1em;
+    color: #666;
+}
+
+.tick-mark {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width:30px;
+    height:30px;
+    background-color: #fff;
+    color: #ff7d00;
+    padding: px;
+    border-radius:50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.car.selected .tick-mark {
+    display: block;
+}
+
+/* Booking Button */
+#bookingButton {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: none;
+    padding: 15px 100px; /* Adjusted padding */
+    border: none;
+    border-radius: 50px;
+    background-color: #ff8900;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+    white-space: nowrap; /* Ensures the text does not wrap */
+}
+
+#bookingButton:hover {
+    background-color: #ff7d00;
+}
+
+/* Testimonials Section */
+.testimonials {
+    text-align: center;
+    padding: 40px 0;
+    position: relative;z-index:5;background-color:white; /* Ensure relative positioning for absolute arrow buttons */
+}
+
+.testimonial-container {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    display: flex; /* Ensure slides are in a row */
+}
+
+.testimonial-slide {
+    display: none;
+    flex: 1 0 100%; /* Each slide takes up full width */
+    transition: transform 0.5s ease-in-out; /* Smooth sliding transition */
+}
+
+.testimonial-slide.active {
+    display: block;
+}
+
+.testimonial-text {
+    font-size: 18px;
+}
+
+.testimonial-author {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.prev-slide,
+.next-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.prev-slide {
+    left: 10px;
+}
+
+.next-slide {
+    right: 10px;
+}
+
+.prev-slide:hover,
+.next-slide:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Service & Website Info Section */
+/* Service & Website Info Section */
+.services-website-info {
+    padding: 40px 20px;
+    background-color:rgba(255, 255, 255, 0.5); /* Dark semi-transparent background color */
+    text-align: center;
+}
+
+.services-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.services-website-info h2 {
+    font-size: 2.5em; /* Increase font size for main heading */
+    font-weight: bold;
+    color: #ff8900; /* Orange color for consistency */
+    margin-bottom: 30px;
+    text-transform: uppercase; /* Uppercase text for consistency */
+    letter-spacing: 2px;
+    border-bottom: 3px solid #ff8900; /* Orange border bottom for consistency */
+    display: inline-block;
+    padding-bottom: 10px;
+    background: linear-gradient(to right, #ff8900, #ff7d00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+ .service {
+    flex: 1 1 calc(50% - 20px); /* Adjust width for responsiveness */
+    max-width: calc(50% - 20px);
+    margin: 10px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Initially out of place */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
+    backdrop-filter: blur(5px); /* Blur effect */
+    -webkit-backdrop-filter: blur(5px);z-index:9; /* Blur effect for Safari */
+}
+.service.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em; /* Font size for service titles */
+    color: #333; /* Dark text color for readability */
+}
+
+.service p {
+    font-size: 1em; /* Font size for service descriptions */
+    color: #666; /* Slightly darker text color for contrast */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service {
+        flex: 1 1 calc(100% - 20px); /* Adjust width for mobile screens */
+        max-width: calc(100% - 20px);
+    }
+}
+
+/* Custom Footer */
+.custom-footer {
+    background-color: #d1eecc; /* Subtle gray background color */
+    color: #333; /* Dark text color for contrast */
+    padding: 40px 0; /* Add some padding for spacing */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-left,
+.footer-right {
+    flex: 1;
+}
+
+.footer h4 {
+    color: #333; /* Dark text color for headings */
+}
+
+.footer p {
+    margin: 0; /* Remove default margin for cleaner appearance */
+}
+
+/* Social Media Icons */
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icon {
+    display: inline-block;
+    font-size: 20px;
+    margin-right: 10px;
+    color: #333; /* Adjust color to match your theme */
+}
+
+.social-icon:hover {
+    color: #FF7A00; /* Adjust hover color to match your theme */
+}
+
+/* Copyright Link */
+.copyright-link {
+    color: #ff7d00; /* Adjust color to match your theme */
+    text-decoration: none;
+}
+
+.copyright-link:hover {
+    text-decoration: underline;
+}
+img {
+    display: none;
+}
+img {
+    display: block; /* or display: inline-block; */
+}
+/* CSS styles for the loader */
+/* CSS styles for the loader */
+.loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);z-index:99999999;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 4px solid transparent; /* Transparent border */
+    border-top-color: #ff8900; border-bottom-color: #ff8900;/* Blue top border */
+    animation: spin 1s linear infinite; /* Apply the spin animation */
+z-index:99999999;}
+
+/* Keyframe animation for the spinning effect */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg); /* Initial rotation */
+    }
+    100% {
+        transform: rotate(360deg); /* Full rotation */
+    }
+}
