@@ -1,6 +1,6 @@
 {
-  "name": "ZipGlide",
-  "short_name": "Zip",
+  "name": "Zip",
+  "short_name": "ZipGlide",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#5900b3",
